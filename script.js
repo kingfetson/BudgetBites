@@ -1,27 +1,64 @@
-
+// script.js - Complete Professional Food Ordering System with Working Images
 
 // ========================
-// MEAL DATABASE
+// MEAL DATABASE WITH WORKING IMAGES
 // ========================
 const mealDatabase = [
-    { id: 1, name: "Nyama Choma + Ugali", category: "Dinner", price: 350, rating: 4.8, image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop", description: "Tender grilled meat with ugali and kachumbari" },
-    { id: 2, name: "Chips + Chicken", category: "Lunch", price: 250, rating: 4.5, image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400&h=300&fit=crop", description: "Crispy fries with juicy fried chicken" },
-    { id: 3, name: "Pilau Beef", category: "Dinner", price: 280, rating: 4.7, image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop", description: "Aromatic spiced rice with tender beef" },
-    { id: 4, name: "Mahamri + Chai", category: "Breakfast", price: 70, rating: 4.3, image: "https://images.unsplash.com/photo-1596097635122-14a9c3e0a3d5?w=400&h=300&fit=crop", description: "Sweet fried bread with strong Kenyan tea" },
-    { id: 5, name: "Githeri", category: "Lunch", price: 120, rating: 4.2, image: "https://images.unsplash.com/photo-1615127028740-24722b644c7f?w=400&h=300&fit=crop", description: "Hearty corn and bean stew" },
-    { id: 6, name: "Samosa (2pcs)", category: "Snacks", price: 80, rating: 4.6, image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop", description: "Crispy pastry filled with spiced meat" },
-    { id: 7, name: "Omena (Silver Fish)", category: "Dinner", price: 200, rating: 4.4, image: "https://images.unsplash.com/photo-1573674802829-2eeabc2ff22c?w=400&h=300&fit=crop", description: "Traditional dried silver fish with onions" },
-    { id: 8, name: "Chapati + Beans", category: "Lunch", price: 150, rating: 4.5, image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=400&h=300&fit=crop", description: "Soft chapatis with bean curry" },
-    { id: 9, name: "Matoke (Plantain)", category: "Dinner", price: 180, rating: 4.3, image: "https://images.unsplash.com/photo-1592331396305-b6ab5d8e1b6f?w=400&h=300&fit=crop", description: "Steamed green bananas with meat" },
-    { id: 10, name: "Mandazi (5pcs)", category: "Breakfast", price: 100, rating: 4.7, image: "https://images.unsplash.com/photo-1614701192807-26d2e12e1029?w=400&h=300&fit=crop", description: "Sweet coconut-flavored doughnuts" },
-    { id: 11, name: "Fruit Smoothie", category: "Drinks", price: 150, rating: 4.5, image: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&h=300&fit=crop", description: "Fresh blended seasonal fruits" },
-    { id: 12, name: "Mukimo", category: "Lunch", price: 130, rating: 4.2, image: "https://images.unsplash.com/photo-1596097635122-14a9c3e0a3d5?w=400&h=300&fit=crop", description: "Mashed potatoes with greens and maize" },
-    { id: 13, name: "Kebab + Chapati", category: "Snacks", price: 180, rating: 4.6, image: "https://images.unsplash.com/photo-1596097635122-14a9c3e0a3d5?w=400&h=300&fit=crop", description: "Grilled meat skewers with chapati" },
-    { id: 14, name: "Mango Juice Fresh", category: "Drinks", price: 100, rating: 4.4, image: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&h=300&fit=crop", description: "Freshly squeezed mango juice" },
-    { id: 15, name: "Rice + Beef Stew", category: "Lunch", price: 300, rating: 4.7, image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop", description: "Fragrant rice with rich beef stew" }
+    // Breakfast Items
+    { id: 1, name: "Mahamri + Chai", category: "Breakfast", price: 70, rating: 4.3, image: "https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?w=400&h=300&fit=crop", description: "Sweet fried bread with strong Kenyan tea" },
+    { id: 2, name: "Mandazi (5pcs)", category: "Breakfast", price: 100, rating: 4.7, image: "https://images.pexels.com/photos/1438697/pexels-photo-1438697.jpeg?w=400&h=300&fit=crop", description: "Sweet coconut-flavored doughnuts" },
+    { id: 3, name: "Chapati + Tea", category: "Breakfast", price: 80, rating: 4.4, image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?w=400&h=300&fit=crop", description: "Soft chapatis with hot chai" },
+    { id: 4, name: "Omelette + Toast", category: "Breakfast", price: 150, rating: 4.6, image: "https://images.pexels.com/photos/1647164/pexels-photo-1647164.jpeg?w=400&h=300&fit=crop", description: "Three-egg omelette with whole wheat toast" },
+    { id: 5, name: "Porridge + Groundnuts", category: "Breakfast", price: 60, rating: 4.2, image: "https://images.pexels.com/photos/2105268/pexels-photo-2105268.jpeg?w=400&h=300&fit=crop", description: "Traditional Kenyan uji with groundnuts" },
+    
+    // Lunch Items
+    { id: 6, name: "Chips + Chicken", category: "Lunch", price: 250, rating: 4.5, image: "https://images.pexels.com/photos/60616/fried-chicken-chicken-french-fries-fast-food-60616.jpeg?w=400&h=300&fit=crop", description: "Crispy fries with juicy fried chicken" },
+    { id: 7, name: "Githeri", category: "Lunch", price: 120, rating: 4.2, image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?w=400&h=300&fit=crop", description: "Hearty corn and bean stew" },
+    { id: 8, name: "Chapati + Beans", category: "Lunch", price: 150, rating: 4.5, image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?w=400&h=300&fit=crop", description: "Soft chapatis with bean curry" },
+    { id: 9, name: "Mukimo", category: "Lunch", price: 130, rating: 4.2, image: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?w=400&h=300&fit=crop", description: "Mashed potatoes with greens and maize" },
+    { id: 10, name: "Rice + Beef Stew", category: "Lunch", price: 300, rating: 4.7, image: "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?w=400&h=300&fit=crop", description: "Fragrant rice with rich beef stew" },
+    { id: 11, name: "Ugali + Sukuma Wiki", category: "Lunch", price: 100, rating: 4.3, image: "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?w=400&h=300&fit=crop", description: "Traditional ugali with collard greens" },
+    { id: 12, name: "Jollof Rice", category: "Lunch", price: 200, rating: 4.6, image: "https://images.pexels.com/photos/674574/pexels-photo-674574.jpeg?w=400&h=300&fit=crop", description: "West African spiced rice with vegetables" },
+    { id: 13, name: "Beef Burger + Chips", category: "Lunch", price: 280, rating: 4.5, image: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?w=400&h=300&fit=crop", description: "Juicy beef patty with crispy fries" },
+    
+    // Dinner Items
+    { id: 14, name: "Nyama Choma + Ugali", category: "Dinner", price: 350, rating: 4.8, image: "https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?w=400&h=300&fit=crop", description: "Tender grilled meat with ugali and kachumbari" },
+    { id: 15, name: "Pilau Beef", category: "Dinner", price: 280, rating: 4.7, image: "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?w=400&h=300&fit=crop", description: "Aromatic spiced rice with tender beef" },
+    { id: 16, name: "Omena (Silver Fish)", category: "Dinner", price: 200, rating: 4.4, image: "https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?w=400&h=300&fit=crop", description: "Traditional dried silver fish with onions" },
+    { id: 17, name: "Matoke (Plantain)", category: "Dinner", price: 180, rating: 4.3, image: "https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?w=400&h=300&fit=crop", description: "Steamed green bananas with meat" },
+    { id: 18, name: "Grilled Fish + Ugali", category: "Dinner", price: 400, rating: 4.9, image: "https://images.pexels.com/photos/45837/grilled-fish-dinner-seafood-45837.jpeg?w=400&h=300&fit=crop", description: "Fresh tilapia grilled to perfection" },
+    { id: 19, name: "Mutton Biryani", category: "Dinner", price: 450, rating: 4.8, image: "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?w=400&h=300&fit=crop", description: "Aromatic spiced rice with tender mutton" },
+    
+    // Snacks
+    { id: 20, name: "Samosa (2pcs)", category: "Snacks", price: 80, rating: 4.6, image: "https://images.pexels.com/photos/7415715/pexels-photo-7415715.jpeg?w=400&h=300&fit=crop", description: "Crispy pastry filled with spiced meat" },
+    { id: 21, name: "Kebab + Chapati", category: "Snacks", price: 180, rating: 4.6, image: "https://images.pexels.com/photos/6198006/pexels-photo-6198006.jpeg?w=400&h=300&fit=crop", description: "Grilled meat skewers with chapati" },
+    { id: 22, name: "Bhajia (8pcs)", category: "Snacks", price: 100, rating: 4.4, image: "https://images.pexels.com/photos/1444893/pexels-photo-1444893.jpeg?w=400&h=300&fit=crop", description: "Crispy potato fritters with chili sauce" },
+    { id: 23, name: "Spring Rolls", category: "Snacks", price: 120, rating: 4.5, image: "https://images.pexels.com/photos/1152001/pexels-photo-1152001.jpeg?w=400&h=300&fit=crop", description: "Vegetable spring rolls with dipping sauce" },
+    { id: 24, name: "Pizza Slice", category: "Snacks", price: 150, rating: 4.3, image: "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?w=400&h=300&fit=crop", description: "Cheesy pepperoni pizza slice" },
+    
+    // Drinks
+    { id: 25, name: "Fruit Smoothie", category: "Drinks", price: 150, rating: 4.5, image: "https://images.pexels.com/photos/2067399/pexels-photo-2067399.jpeg?w=400&h=300&fit=crop", description: "Fresh blended seasonal fruits" },
+    { id: 26, name: "Mango Juice Fresh", category: "Drinks", price: 100, rating: 4.4, image: "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?w=400&h=300&fit=crop", description: "Freshly squeezed mango juice" },
+    { id: 27, name: "Passion Juice", category: "Drinks", price: 120, rating: 4.6, image: "https://images.pexels.com/photos/1009721/pexels-photo-1009721.jpeg?w=400&h=300&fit=crop", description: "Sweet and tangy passion fruit juice" },
+    { id: 28, name: "Fresh Coconut Water", category: "Drinks", price: 80, rating: 4.3, image: "https://images.pexels.com/photos/3228721/pexels-photo-3228721.jpeg?w=400&h=300&fit=crop", description: "Natural refreshing coconut water" },
+    { id: 29, name: "Milkshake", category: "Drinks", price: 180, rating: 4.5, image: "https://images.pexels.com/photos/736753/pexels-photo-736753.jpeg?w=400&h=300&fit=crop", description: "Creamy milkshake (Vanilla/Chocolate/Strawberry)" },
+    { id: 30, name: "Soda Can", category: "Drinks", price: 70, rating: 4.0, image: "https://images.pexels.com/photos/291764/pexels-photo-291764.jpeg?w=400&h=300&fit=crop", description: "Chilled soft drink (Coke/Sprite/Fanta)" },
+    
+    // More Dinner Options
+    { id: 31, name: "Roasted Chicken + Chips", category: "Dinner", price: 380, rating: 4.7, image: "https://images.pexels.com/photos/616853/pexels-photo-616853.jpeg?w=400&h=300&fit=crop", description: "Whole roasted chicken with seasoned chips" },
+    { id: 32, name: "Beef Stew + Rice", category: "Dinner", price: 320, rating: 4.6, image: "https://images.pexels.com/photos/1640771/pexels-photo-1640771.jpeg?w=400&h=300&fit=crop", description: "Slow-cooked beef stew with white rice" },
+    
+    // Lunch Additions
+    { id: 33, name: "Vegetable Biryani", category: "Lunch", price: 220, rating: 4.4, image: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?w=400&h=300&fit=crop", description: "Fragrant rice with mixed vegetables" },
+    { id: 34, name: "Beef Tacos (2pcs)", category: "Lunch", price: 250, rating: 4.5, image: "https://images.pexels.com/photos/3219547/pexels-photo-3219547.jpeg?w=400&h=300&fit=crop", description: "Soft tortillas with seasoned beef" },
+    
+    // Breakfast Additions
+    { id: 35, name: "Pancakes + Honey", category: "Breakfast", price: 180, rating: 4.6, image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?w=400&h=300&fit=crop", description: "Fluffy pancakes with honey syrup" },
+    { id: 36, name: "Full English Breakfast", category: "Breakfast", price: 450, rating: 4.8, image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?w=400&h=300&fit=crop", description: "Eggs, bacon, sausage, beans, toast, mushrooms" }
 ];
 
-const dealsData = mealDatabase.slice(0, 6);
+// Deals data (best deals - under 200 KES)
+const dealsData = mealDatabase.filter(meal => meal.price <= 200).slice(0, 8);
 
 // ========================
 // STATE MODULE
@@ -136,7 +173,6 @@ const addToCart = (meal) => {
     saveCart();
     showNotification(`${meal.name} added to cart!`, "success");
     
-    // Animate button
     document.querySelectorAll(`.add-to-cart-btn[data-id="${meal.id}"]`).forEach(btn => {
         btn.classList.add('added');
         btn.innerHTML = '<i class="fas fa-check"></i> Added';
@@ -181,7 +217,7 @@ const updateCartUI = () => {
         } else {
             cartItemsContainer.innerHTML = cart.map(item => `
                 <div class="cart-item">
-                    <img class="cart-item-img" src="${item.image}" alt="${item.name}">
+                    <img class="cart-item-img" src="${item.image}" alt="${item.name}" onerror="this.src='https://placehold.co/400x300/FF6B35/white?text=FoodieBudget'">
                     <div class="cart-item-details">
                         <h4>${item.name}</h4>
                         <div class="cart-item-price">KES ${item.price}</div>
@@ -219,7 +255,6 @@ const checkoutViaWhatsApp = () => {
     window.open(`https://wa.me/254700000000?text=${message}`, '_blank');
     showNotification("Order placed! Redirecting to WhatsApp...", "success");
     
-    // Clear cart after order
     cart = [];
     saveCart();
     closeCart();
@@ -278,7 +313,6 @@ const showNotification = (message, type = 'success') => {
     notification.onclick = () => notification.remove();
 };
 
-// Add animation styles
 const style = document.createElement('style');
 style.textContent = `@keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }`;
 document.head.appendChild(style);
@@ -306,7 +340,7 @@ const sortMeals = (meals) => {
 
 const createFoodCard = (meal) => `
     <div class="food-card" data-id="${meal.id}">
-        <img class="food-img" src="${meal.image}" alt="${meal.name}" loading="lazy">
+        <img class="food-img" src="${meal.image}" alt="${meal.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/FF6B35/white?text=FoodieBudget'">
         <div class="food-info">
             <h3>${meal.name}</h3>
             <p>${meal.description}</p>
@@ -349,7 +383,7 @@ const renderDeals = () => {
     if (!DOM.dealsContainer) return;
     DOM.dealsContainer.innerHTML = dealsData.map(deal => `
         <div class="food-card">
-            <img class="food-img" src="${deal.image}" alt="${deal.name}" style="height: 160px;">
+            <img class="food-img" src="${deal.image}" alt="${deal.name}" style="height: 160px;" onerror="this.src='https://placehold.co/400x300/FF6B35/white?text=FoodieBudget'">
             <div class="food-info">
                 <h4>${deal.name}</h4>
                 <div class="food-price">KES ${deal.price}</div>
@@ -485,12 +519,14 @@ const showOrders = () => {
 // TESTIMONIALS MODULE
 // ========================
 const testimonialsDatabase = [
-    { id: 1, name: "Brian Kipchoge", location: "Nairobi, CBD", rating: 5, comment: "This app helps me choose meals daily! Perfect for campus students.", favoriteMeal: "Nyama Choma", date: "2024-01-15" },
-    { id: 2, name: "Stacy Wanjiku", location: "Westlands", rating: 5, comment: "Amazing food suggestions! The WhatsApp order feature is a game-changer!", favoriteMeal: "Pilau Beef", date: "2024-01-10" },
-    { id: 3, name: "James Otieno", location: "Kilimani", rating: 5, comment: "Finally an app that understands Kenyan pockets. Highly recommended!", favoriteMeal: "Chips Chicken", date: "2024-01-05" },
-    { id: 4, name: "Mary Njeri", location: "Eastlands", rating: 5, comment: "FoodieBudget helps me plan weekly meals without breaking the bank.", favoriteMeal: "Githeri", date: "2024-01-03" },
-    { id: 5, name: "Peter Mwangi", location: "Thika Road", rating: 4, comment: "Great variety and very accurate budget suggestions. Beautiful UI!", favoriteMeal: "Chapati Beans", date: "2023-12-28" },
-    { id: 6, name: "Sarah Chemutai", location: "Eldoret", rating: 5, comment: "I love how easy it is to find affordable meals. The search by budget is brilliant!", favoriteMeal: "Mukimo", date: "2024-01-12" }
+    { id: 1, name: "Brian Kipchoge", location: "Nairobi, CBD", rating: 5, comment: "This app helps me choose meals daily! Perfect for campus students. I've saved over 2000 KES this month alone.", favoriteMeal: "Nyama Choma", date: "2024-01-15" },
+    { id: 2, name: "Stacy Wanjiku", location: "Westlands", rating: 5, comment: "Amazing food suggestions! I never knew I could get Pilau for that cheap. The WhatsApp order feature is a game-changer!", favoriteMeal: "Pilau Beef", date: "2024-01-10" },
+    { id: 3, name: "James Otieno", location: "Kilimani", rating: 5, comment: "Finally an app that understands Kenyan pockets. The deals section saves me everyday. Highly recommended!", favoriteMeal: "Chips Chicken", date: "2024-01-05" },
+    { id: 4, name: "Mary Njeri", location: "Eastlands", rating: 5, comment: "As a mom of two, budgeting meals is crucial. FoodieBudget helps me plan weekly meals without breaking the bank.", favoriteMeal: "Githeri", date: "2024-01-03" },
+    { id: 5, name: "Peter Mwangi", location: "Thika Road", rating: 4, comment: "Great variety of meals and very accurate budget suggestions. The UI is beautiful and easy to use.", favoriteMeal: "Chapati Beans", date: "2023-12-28" },
+    { id: 6, name: "Sarah Chemutai", location: "Eldoret", rating: 5, comment: "I love how easy it is to find affordable meals. The search by budget feature is brilliant!", favoriteMeal: "Mukimo", date: "2024-01-12" },
+    { id: 7, name: "David Omondi", location: "Kisumu", rating: 4.5, comment: "Best food discovery platform in Kenya. The deals are actually good and the vendors are reliable.", favoriteMeal: "Omena", date: "2024-01-08" },
+    { id: 8, name: "Grace Muthoni", location: "Nakuru", rating: 5, comment: "The variety of meals is amazing! From nyama choma to vegetarian options, everything is covered.", favoriteMeal: "Vegetable Biryani", date: "2024-01-14" }
 ];
 
 let testimonialIndex = 0;
@@ -597,13 +633,11 @@ const initEventListeners = () => {
     if (DOM.themeToggle) DOM.themeToggle.addEventListener('click', toggleTheme);
     if (DOM.budgetInput) DOM.budgetInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSuggestMeal(); });
     
-    // Cart events
     document.getElementById('cart-link')?.addEventListener('click', (e) => { e.preventDefault(); openCart(); });
     document.querySelector('.close-cart')?.addEventListener('click', closeCart);
     document.getElementById('cart-overlay')?.addEventListener('click', closeCart);
     document.getElementById('checkout-btn')?.addEventListener('click', checkoutViaWhatsApp);
     
-    // User events
     const userBtn = document.getElementById('user-btn');
     const userDropdown = document.getElementById('user-dropdown');
     if (userBtn && userDropdown) {
@@ -616,14 +650,12 @@ const initEventListeners = () => {
     document.getElementById('orders-btn')?.addEventListener('click', () => { showOrders(); userDropdown.classList.remove('active'); });
     document.getElementById('logout-btn')?.addEventListener('click', () => { logoutUser(); userDropdown.classList.remove('active'); });
     
-    // Auth modal events
     document.querySelectorAll('.modal-close, #auth-modal .modal-close, #orders-modal .modal-close').forEach(btn => {
         btn?.addEventListener('click', function() { this.closest('.modal').style.display = 'none'; });
     });
     document.getElementById('show-register')?.addEventListener('click', (e) => { e.preventDefault(); document.getElementById('login-form-container').style.display = 'none'; document.getElementById('register-form-container').style.display = 'block'; });
     document.getElementById('show-login')?.addEventListener('click', (e) => { e.preventDefault(); document.getElementById('register-form-container').style.display = 'none'; document.getElementById('login-form-container').style.display = 'block'; });
     
-    // Login form
     document.getElementById('login-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
         const result = loginUser(document.getElementById('login-email').value, document.getElementById('login-password').value);
@@ -631,7 +663,6 @@ const initEventListeners = () => {
         if (result.success) { closeAuthModal(); updateCartUI(); }
     });
     
-    // Register form
     document.getElementById('register-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
         const result = registerUser(
@@ -645,7 +676,6 @@ const initEventListeners = () => {
         if (result.success) { document.getElementById('register-form-container').style.display = 'none'; document.getElementById('login-form-container').style.display = 'block'; }
     });
     
-    // Testimonial modal
     document.getElementById('share-testimonial-btn')?.addEventListener('click', () => { document.getElementById('testimonial-modal').style.display = 'flex'; });
     document.querySelectorAll('#testimonial-modal .modal-close').forEach(btn => { btn?.addEventListener('click', () => { document.getElementById('testimonial-modal').style.display = 'none'; }); });
     
@@ -664,6 +694,9 @@ const initEventListeners = () => {
         showNotification('Thank you! Your review has been sent!', 'success');
         document.getElementById('testimonial-modal').style.display = 'none';
         document.getElementById('testimonial-form').reset();
+        document.getElementById('test-rating').value = '5';
+        document.querySelectorAll('#rating-select span').forEach(s => s.classList.remove('selected'));
+        document.querySelector('#rating-select span[data-rating="5"]')?.classList.add('selected');
     });
     
     document.querySelectorAll('#rating-select span').forEach(span => {
@@ -696,7 +729,7 @@ const initSmoothScroll = () => {
 };
 
 const init = () => {
-    console.log("FoodieBudget App Initialized 🍽️");
+    console.log("FoodieBudget App Initialized 🍽️ with 36+ meals!");
     if (DOM.budgetInput) DOM.budgetInput.value = "300";
     loadTheme();
     checkSession();
@@ -712,6 +745,5 @@ const init = () => {
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
 else init();
 
-// Make functions global for onclick handlers
 window.updateQuantity = updateQuantity;
 window.removeFromCart = removeFromCart;
