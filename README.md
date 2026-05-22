@@ -4,7 +4,7 @@
 
 **Eat Well, Spend Smart** - A complete food ordering platform with user authentication, shopping cart, and WhatsApp checkout.
 
-![FoodieBudget Pro Preview](https://via.placeholder.com/800x400/FF6B35/white?text=FoodieBudget+Pro)
+![BudgetBites Preview](screencapture.png)
 
 ## 🌟 Features
 
