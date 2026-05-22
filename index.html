@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieBudget | Eat Well, Spend Smart</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Foodie<span>Budget</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#find-meal">Find Meal</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#" id="cart-link"><i class="fas fa-shopping-cart"></i> Cart <span id="cart-count" class="cart-count">0</span></a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+                <div class="user-menu">
+                    <button id="user-btn" class="user-btn">
+                        <i class="fas fa-user"></i> <span id="user-name-display">Account</span>
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <div class="user-info-dropdown">
+                            <i class="fas fa-user-circle"></i>
+                            <div>
+                                <strong id="dropdown-username">Guest</strong>
+                                <small id="dropdown-useremail">Not logged in</small>
+                            </div>
+                        </div>
+                        <div id="auth-buttons">
+                            <button id="login-btn-dropdown" class="dropdown-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                            <button id="register-btn-dropdown" class="dropdown-btn"><i class="fas fa-user-plus"></i> Register</button>
+                        </div>
+                        <div id="user-actions" style="display: none;">
+                            <button id="orders-btn" class="dropdown-btn"><i class="fas fa-history"></i> My Orders</button>
+                            <button id="logout-btn" class="dropdown-btn logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Find the best meals for your <span class="highlight">budget.</span></h1>
+                <p>The smartest way to discover delicious meals in Kenya that fit your pocket. No more guessing, just eating.</p>
+                <a href="#find-meal" class="cta-btn">Find My Meal</a>
+            </div>
+        </section>
+
+        <!-- Login/Register Modal -->
+        <div id="auth-modal" class="modal" style="display: none;">
+            <div class="modal-content auth-modal">
+                <span class="modal-close">&times;</span>
+                <div id="login-form-container">
+                    <div class="modal-header">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Welcome to FoodieBudget</h3>
+                        <p>Login to start ordering your favorite meals</p>
+                    </div>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="login-email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="login-password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Login</button>
+                    </form>
+                    <p class="auth-switch">Don't have an account? <a href="#" id="show-register">Register</a></p>
+                </div>
+                <div id="register-form-container" style="display: none;">
+                    <div class="modal-header">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>Create Account</h3>
+                        <p>Join FoodieBudget today</p>
+                    </div>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="register-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="register-email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="register-phone" placeholder="0712345678" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="register-password" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> Confirm Password</label>
+                            <input type="password" id="register-confirm" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Register</button>
+                    </form>
+                    <p class="auth-switch">Already have an account? <a href="#" id="show-login">Login</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Sidebar -->
+        <div id="cart-sidebar" class="cart-sidebar">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Your cart is empty</p>
+                    <small>Add some delicious meals!</small>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <strong id="cart-total-amount">KES 0</strong>
+                </div>
+                <button id="checkout-btn" class="checkout-btn" disabled>
+                    <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+                </button>
+            </div>
+        </div>
+        <div id="cart-overlay" class="cart-overlay"></div>
+
+        <!-- Budget Input Section -->
+        <section id="find-meal" class="budget-section">
+            <div class="container">
+                <div class="search-card">
+                    <h2>What's your budget today?</h2>
+                    <div class="search-controls">
+                        <div class="input-group">
+                            <label>Amount (KES)</label>
+                            <input type="number" id="budget-input" placeholder="e.g. 300">
+                        </div>
+                        <div class="input-group">
+                            <label>Category</label>
+                            <select id="category-select">
+                                <option value="All">All Categories</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Snacks">Snacks</option>
+                                <option value="Drinks">Drinks</option>
+                            </select>
+                        </div>
+                        <button id="suggest-btn" class="primary-btn">Suggest Food</button>
+                    </div>
+                    <div class="extra-filters">
+                        <input type="text" id="search-bar" placeholder="Search for food...">
+                        <select id="sort-select">
+                            <option value="default">Sort By</option>
+                            <option value="low">Price: Low to High</option>
+                            <option value="high">Price: High to Low</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+            <div class="container">
+                <div id="loading-spinner" class="hidden">
+                    <div class="spinner"></div>
+                </div>
+                <div id="food-grid" class="food-grid"></div>
+                <div id="empty-state" class="hidden">
+                    <img src="https://illustrations.popsy.co/amber/no-results.svg" alt="No meals found">
+                    <h3>No meals found within your budget.</h3>
+                    <p>Try increasing your budget or changing the category.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deals Section -->
+        <section id="deals" class="deals-section">
+            <div class="container">
+                <h2 class="section-title">Today's Best Deals</h2>
+                <div class="horizontal-scroll" id="deals-container"></div>
+            </div>
+        </section>
+
+        <!-- My Orders Modal -->
+        <div id="orders-modal" class="modal" style="display: none;">
+            <div class="modal-content orders-modal">
+                <span class="modal-close">&times;</span>
+                <div class="modal-header">
+                    <i class="fas fa-history"></i>
+                    <h3>My Order History</h3>
+                </div>
+                <div id="orders-list" class="orders-list">
+                    <p class="no-orders">No orders yet. Start shopping!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Foodies Say</h2>
+                    <p class="section-subtitle">Join 10,000+ happy foodies finding their perfect meals</p>
+                </div>
+                <div class="testimonial-slider-container">
+                    <button class="slider-nav prev-slide" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-slider-wrapper">
+                        <div class="testimonial-track" id="testimonial-track"></div>
+                    </div>
+                    <button class="slider-nav next-slide" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="slider-dots" id="slider-dots"></div>
+                <div class="testimonial-cta">
+                    <div class="cta-content">
+                        <i class="fas fa-heart"></i>
+                        <p>Love our service?</p>
+                        <button id="share-testimonial-btn" class="share-btn">
+                            Share Your Experience <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Submission Modal -->
+        <div id="testimonial-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="modal-header">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>Share Your Foodie Experience</h3>
+                </div>
+                <p class="modal-subtitle">Your review helps others discover great meals!</p>
+                <form id="testimonial-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Your Name</label>
+                        <input type="text" id="test-name" placeholder="e.g., Brian Kipchoge" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Your Location</label>
+                        <input type="text" id="test-location" placeholder="e.g., Nairobi, CBD" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-utensils"></i> Favorite Meal Found</label>
+                        <input type="text" id="test-meal" placeholder="e.g., Nyama Choma, Pilau, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-star"></i> Your Rating</label>
+                        <div class="rating-select" id="rating-select">
+                            <span data-rating="1">⭐</span>
+                            <span data-rating="2">⭐⭐</span>
+                            <span data-rating="3">⭐⭐⭐</span>
+                            <span data-rating="4">⭐⭐⭐⭐</span>
+                            <span data-rating="5">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <input type="hidden" id="test-rating" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Your Review</label>
+                        <textarea id="test-comment" rows="3" placeholder="What did you love about FoodieBudget?" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> WhatsApp Number (Optional)</label>
+                        <input type="tel" id="test-phone" placeholder="e.g., 0712345678">
+                        <small>We'll send you a discount coupon on WhatsApp!</small>
+                    </div>
+                    <button type="submit" class="submit-review-btn">
+                        <i class="fab fa-whatsapp"></i> Submit via WhatsApp
+                    </button>
+                </form>
+                <p class="modal-footer-note">By submitting, you agree to share this review on our platform</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Foodie<span>Budget</span></div>
+                    <p>Helping Kenyans find delicious, affordable meals that fit their daily budget. Eat smart, live better.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#find-meal">Find Food</a></li>
+                        <li><a href="#deals">Best Deals</a></li>
+                        <li><a href="#">Student Special</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Partner with Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +254 700 000 000</p>
+                    <p><i class="fas fa-envelope"></i> hello@foodiebudget.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FoodieBudget. All rights reserved. Designed with ❤️ for the Kenyan Foodie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
