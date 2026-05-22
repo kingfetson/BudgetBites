@@ -1,5 +1,6 @@
 
-# 🍽️ FoodieBudget Pro
+# 🍽️ BudgetBites
+
 
 **Eat Well, Spend Smart** - A complete food ordering platform with user authentication, shopping cart, and WhatsApp checkout.
 
